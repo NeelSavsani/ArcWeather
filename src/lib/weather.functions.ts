@@ -3,7 +3,8 @@ import { createServerFn } from "@tanstack/react-start";
 const BASE = "https://api.openweathermap.org";
 
 async function ow(path: string, params: Record<string, string | number>) {
-  const key = process.env.OPENWEATHER_API_KEY;
+  // const key = process.env.OPENWEATHER_API_KEY;
+  const key = "1c85fff7f3cf2b753ecb47f2a1d7636c";
   if (!key) throw new Error("OPENWEATHER_API_KEY is not configured");
   const qs = new URLSearchParams({ ...Object.fromEntries(Object.entries(params).map(([k, v]) => [k, String(v)])), appid: key });
   const res = await fetch(`${BASE}${path}?${qs.toString()}`);
